@@ -1,0 +1,6 @@
+@otomobil_HostAddress = http://localhost:5041
+
+GET {{otomobil_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
