@@ -35,6 +35,34 @@ namespace otomobil.Controllers
             }
             
         }
+
+        [HttpGet("GetAllByCategoryId")]
+        // [Authorize]
+        public IActionResult GetAll(int categoryId)
+        {
+            try
+            {
+                List<Course> courses = _courseData.GetAllByCategoryId(categoryId);
+                return Ok(courses);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpGet("GetCourseById")]
+        public IActionResult Get(int course_id)
+        {
+            Course? course = _courseData.GetCourseById(course_id);
+
+            if (course == null)
+            {
+                return NotFound("Data Not Found");
+            }
+
+            return Ok(course);
+        }
     }
 
 }

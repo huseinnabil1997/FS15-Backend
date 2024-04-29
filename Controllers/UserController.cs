@@ -79,7 +79,6 @@ namespace otomobil.Controllers
 
             if (user == null) return Unauthorized("You do not authorized");
 
-            // Pengecekan isActivated
             if (!user.isActivated)
             {
                 return BadRequest("Your account is not activated. Please check your email for activation link.");
@@ -98,8 +97,8 @@ namespace otomobil.Controllers
 
                 var claims = new Claim[]
                 {
-            new Claim(ClaimTypes.Name, user.email),
-                    //new Claim(ClaimTypes.Role, userRole.Role)
+                    new Claim(ClaimTypes.Name, user.email),
+                    new Claim("user_id", user.user_id.ToString()) // Add user_id to the claim
                 };
 
                 var signingCredential = new SigningCredentials(
@@ -119,7 +118,14 @@ namespace otomobil.Controllers
 
                 string token = tokenHandler.WriteToken(securityToken);
 
-                return Ok(new LoginResponseDTO { Token = token });
+                // Return token and user_id in the response
+                var responseDTO = new LoginResponseWithUserIdDTO
+                {
+                    Token = token,
+                    UserId = user.user_id
+                };
+
+                return Ok(responseDTO);
             }
         }
 
@@ -266,6 +272,12 @@ namespace otomobil.Controllers
             bool mailResult = await _mail.SendAsync(mailModel, new CancellationToken());
             return mailResult;
         }
+    }
+
+    public class LoginResponseWithUserIdDTO
+    {
+        public string Token { get; set; }
+        public int UserId { get; set; }
     }
 }
 

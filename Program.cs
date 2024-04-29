@@ -44,6 +44,7 @@ builder.Services.AddScoped<CourseData>();
 builder.Services.AddScoped<CarCategoryData>();
 builder.Services.AddScoped<UserData>();
 builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<CartItemData>();
 //builder.Services.AddScoped<UserData>();
 
 builder.Services.AddCors();
