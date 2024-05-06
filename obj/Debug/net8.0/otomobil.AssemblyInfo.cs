@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("otomobil")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+17c30676e42e3bcb2c0c990cd74986cf733ee321")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82a3077cb451586296592c9b910a95f4599766e6")]
 [assembly: System.Reflection.AssemblyProductAttribute("otomobil")]
 [assembly: System.Reflection.AssemblyTitleAttribute("otomobil")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

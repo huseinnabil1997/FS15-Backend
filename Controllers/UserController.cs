@@ -195,7 +195,7 @@ namespace otomobil.Controllers
                         {"email", email }
                     };
 
-            string callbackUrl = QueryHelpers.AddQueryString("http://localhost:5173/new-password", param);
+            string callbackUrl = QueryHelpers.AddQueryString("http://52.237.194.35:2029/new-password", param);
 
             string body = "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>";
 
@@ -255,7 +255,7 @@ namespace otomobil.Controllers
                         {"email", user.email }
                     };
 
-            string callbackUrl = QueryHelpers.AddQueryString("http://localhost:5173/confirm-success", param);
+            string callbackUrl = QueryHelpers.AddQueryString("http://52.237.194.35:2029/confirm-success", param);
 
             //string body = "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>";
 
